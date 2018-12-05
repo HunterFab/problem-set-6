@@ -44,26 +44,28 @@ context.strokeText("Hello, World", 10, 50)
 
 function drawRectangle() {
 
-do {
-  height = prompt("Enter a height for the rectangle. (Only values greater than or equal to 1 are valid. You will be reprompted until you comply.)")
-} while (height < 1)
-
-do {
-  width = prompt("Enter a width for the rectangle. (Only values greater than or equal to 1 are valid. You will be reprompted until you comply.)")
-} while (width < 1)
-
-do {
-  x = prompt("Enter an x value for the placement of the rectangle. (Only values greater than or equal to 5 are valid. You will be reprompted until you comply.)")
-} while (x < 5)
-
-do {
-  y = prompt("Enter a y value for the placement of the rectangle. (Only values greater than or equal to 5 are valid. You will be reprompted until you comply.)")
-} while (y < 5)
-
+height = prompt("Enter a height for the rectangle. (Only values greater than or equal to 1 are valid.)")
+width = prompt("Enter a width for the rectangle. (Only values greater than or equal to 1 are valid.)")
+x = prompt("Enter an x value for the placement of the rectangle. (Only values greater than or equal to 5 are valid.)")
+y = prompt("Enter a y value for the placement of the rectangle. (Only values greater than or equal to 5 are valid.)")
+if (height < 1) {
+  alert("Your height is too small.")
+}
+else if (width < 1) {
+  alert("Your width is too small.")
+}
+else if (x < 5) {
+  alert("Your x value is too small.")
+}
+else if (y < 5) {
+  alert("Your y value is too small.")
+}
+else {
 canvas = document.getElementById("canvas2")
 const context = canvas.getContext("2d")
 context.clearRect(0, 0, canvas.width, canvas.height)
 context.strokeRect(x, y, width, height)
+}
 }
 
 /*
@@ -99,33 +101,34 @@ function drawColoredRectangle() {
 
   canvas = document.getElementById("canvas3");
   const context = canvas.getContext("2d");
+  var rectColor
 
   if (color = "black") {
-    color = "#000000";
+    rectColor = "#000000";
   }
   else if (color = "blue") {
-    color = "#0000FF";
+    rectColor = "#0000FF";
   }
   else if (color = "green") {
-    color = "#00FF00";
+    rectColor = "#00FF00";
   }
   else if (color = "orange") {
-    color = "#FFA500";
+    rectColor = "#FFA500";
   }
   else if (color = "purple") {
-    color = "#800080";
+    rectColor = "#800080";
   }
   else if (color = "red") {
-    color = "#FF0000";
+    rectColor = "#FF0000";
   }
   else if (color = "yellow") {
-    color = "#FFFF00";
+    rectColor = "#FFFF00";
   }
   else {
     alert("The color you entered is not supported by the code.");
   }
 
-  context.fillStyle = color
+  context.fillStyle = rectColor
   context.clearRect(0, 0, canvas.width, canvas.height)
   context.fillRect(10, 10, 100, 50)
 
