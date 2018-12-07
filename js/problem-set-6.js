@@ -60,16 +60,16 @@ else if (x < 5) {
 else if (y < 5) {
   alert("Your y value is too small.")
 }
-else if (height = NaN) {
+else if (height != Number.isInteger(height)) {
   alert("The height value is not a number.")
 }
-else if (width = NaN) {
+else if (width != Number.isInteger(width)) {
   alert("The width value is not a number.")
 }
-else if (x = NaN) {
+else if (x != Number.isInteger(x)) {
   alert("The x value is not a number.")
 }
-else if (y = NaN) {
+else if (y != Number.isInteger(y)) {
   alert("The y value is not a number.")
 }
 else {
@@ -158,11 +158,11 @@ function drawColoredRectangle() {
 
 function drawTriangle() {
 
-  let canvas = document.getElementById("canvas4");
-  let context = canvas.getContext("2d");
+  canvas = document.getElementById("canvas4");
+  const context = canvas.getContext("2d");
   context.clearRect(0, 0, canvas.width, canvas.height);
-    let x=10;
-    let y=10;
+    let x = 10;
+    let y = 10;
     let a;
     let b;
     let c;
@@ -215,6 +215,39 @@ context.stroke();
 
 function drawSmileyFace() {
 
+  canvas = document.getElementById("canvas5");
+  const context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  let r;
+
+  while(1) {
+    r = Number(prompt("Enter a radius for the smiley face."))
+    if (r>=1 && r<=canvas.width && Number.isInteger(r)) {
+      break;
+    }
+    else {
+      alert("The radius is invalid.")
+    }
+  }
+  let x = canvas.height / 2
+  let y = canvas.height / 2
+
+  context.beginPath();
+  context.arc(x,y,r,0*Math.PI,2*Math.PI);
+  context.stroke();
+
+  let eyer = r * .1
+  let mouthr = r *.6
+
+  context.beginPath();
+  context.arc(x+r/4,y-r/3,eyer,0*Math.PI,2*Math.PI);
+  context.stroke();
+  context.beginPath();
+  context.arc(x-r/4,y-r/3,eyer,0*Math.PI,2*Math.PI);
+  context.stroke();
+  context.beginPath();
+  context.arc(x,y,mouthr,0*Math.PI,Math.PI);
+  context.stroke();
 }
 
 /*
