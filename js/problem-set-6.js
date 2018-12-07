@@ -60,6 +60,18 @@ else if (x < 5) {
 else if (y < 5) {
   alert("Your y value is too small.")
 }
+else if (height = NaN) {
+  alert("The height value is not a number.")
+}
+else if (width = NaN) {
+  alert("The width value is not a number.")
+}
+else if (x = NaN) {
+  alert("The x value is not a number.")
+}
+else if (y = NaN) {
+  alert("The y value is not a number.")
+}
 else {
 canvas = document.getElementById("canvas2")
 const context = canvas.getContext("2d")
@@ -95,40 +107,21 @@ context.strokeRect(x, y, width, height)
 
 function drawColoredRectangle() {
 
-  for(let i = 0; i < 1; i++) {
-    var color = prompt("Enter a color.")
-  }
-
   canvas = document.getElementById("canvas3");
   const context = canvas.getContext("2d");
-  var rectColor
 
-  if (color = "black") {
-    rectColor = "#000000";
-  }
-  else if (color = "blue") {
-    rectColor = "#0000FF";
-  }
-  else if (color = "green") {
-    rectColor = "#00FF00";
-  }
-  else if (color = "orange") {
-    rectColor = "#FFA500";
-  }
-  else if (color = "purple") {
-    rectColor = "#800080";
-  }
-  else if (color = "red") {
-    rectColor = "#FF0000";
-  }
-  else if (color = "yellow") {
-    rectColor = "#FFFF00";
-  }
-  else {
-    alert("The color you entered is not supported by the code.");
-  }
+  let color;
+   while(1){
+     color = prompt("Please Enter a Valid Color")
+     if(color == "black" || color == "blue" || color == "green" || color == "orange" || color == "purple" || color == "red" || color == "yellow") {
+       break;
+     }
+     else {
+       alert(`${color} is not supported.`)
+     }
+   }
 
-  context.fillStyle = rectColor
+  context.fillStyle=color;
   context.clearRect(0, 0, canvas.width, canvas.height)
   context.fillRect(10, 10, 100, 50)
 
@@ -165,7 +158,41 @@ function drawColoredRectangle() {
 
 function drawTriangle() {
 
+  let canvas = document.getElementById("canvas4");
+  let context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+    let x=10;
+    let y=10;
+    let a;
+    let b;
+    let c;
+  while(true){
+	     a = Number(prompt("Enter the length of side 1."));
+	     b = Number(prompt("Enter the length of side 2"));
+	     c = Number(prompt("Enter the lenght of the hypotenuse."));
+	if(a**2 + b**2 == c**2 && a>0 && b>0 && c>0 && canvas.width-x-a >= 0 && canvas.height-y-b >= 0){
+		break;
+	}
+    else{
+		    alert("That is not a valid triangle")
+	     }
+  }
+
+context.beginPath();
+context.moveTo(x,y);
+context.lineTo(x,y+a);
+context.stroke();
+context.beginPath();
+context.moveTo(x,y+a);
+context.lineTo(x+b,y+a);
+context.stroke();
+context.beginPath();
+context.moveTo(x,y);
+context.lineTo(x+b,y+a);
+context.stroke();
+
 }
+
 
 /*
  * Smile. 7 points.
