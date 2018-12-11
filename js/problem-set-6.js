@@ -270,7 +270,54 @@ function drawSmileyFace() {
 
 function drawStar() {
 
+  canvas = document.getElementById("canvas6");
+  const context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  let ir
+  let or
+
+  while(1) {
+    ir = Number(prompt("Enter an inner radius for the star."))
+    or = Number(prompt("Enter an outer radius for the star."))
+    if (ir>=5 && ir<=250 && Number.isInteger(ir) && ir<=250 && or>=10 && or<=300 && Number.isInteger(ir)) {
+      break;
+    }
+    else if (ir < 5){
+      alert("The inner radius is too small.")
+    }
+    else if (ir > 250){
+      alert("The inner radius is too big")
+    }
+    else if (or < 10){
+      alert("The outer radius is too small.")
+    }
+    else if (or > 300){
+      alert("The outer radius is too big.")
+    }
+    else if (ir>=or){
+      alert("The outer radius must be greater than the inner radius.")
+    }
+    else {
+      alert("One of the radius lengths were invalid.")
+    }
+  }
+
+  let x = 125
+  let y = 125
+
+  context.beginPath();
+  context.moveTo(125,125+or);
+  context.arc(125,125,or,(3*Math.PI)/4,(3*Math.PI)/4);
+  context.arc(125,125,ir,Math.PI,Math.PI);
+  context.arc(125,125,or,(5*Math.PI)/4,(5*Math.PI)/4);
+  context.arc(125,125,ir,(3*Math.PI)/2,(3*Math.PI)/2);
+  context.stroke();
+
+
+
 }
+
 
 /*
  * Stop Sign. 7 points.
