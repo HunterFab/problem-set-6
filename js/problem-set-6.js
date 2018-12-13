@@ -303,19 +303,17 @@ function drawStar() {
     }
   }
 
-  let x = 125
-  let y = 125
-
   context.beginPath();
-  context.moveTo(125,125+or);
-  context.arc(125,125,or,(3*Math.PI)/4,(3*Math.PI)/4);
-  context.arc(125,125,ir,Math.PI,Math.PI);
-  context.arc(125,125,or,(5*Math.PI)/4,(5*Math.PI)/4);
-  context.arc(125,125,ir,(3*Math.PI)/2,(3*Math.PI)/2);
-  context.stroke();
+  context.translate(125, 125);
+  context.moveTo(0,0-or);
 
-
-
+  for (var i = 0; i < 5; i++) {
+    context.rotate(Math.PI / 5);
+    context.lineTo(0, 0 - (ir));
+    context.rotate(Math.PI / 5);
+    context.lineTo(0, 0 - or);
+    context.stroke();
+      }
 }
 
 
