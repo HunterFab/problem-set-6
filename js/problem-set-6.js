@@ -334,6 +334,29 @@ function drawStar() {
 
 function drawStopSign() {
 
+  canvas = document.getElementById("canvas7");
+  const context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  let center = [120*(90/82/Math.sqrt(2)), (50+(80/Math.sqrt(2)))]
+
+  let pointx=[];
+  let pointy=[];
+
+  for(let i=0;i<9;i++){
+    pointx.push(Math.cos(((Math.PI*2*i)/8)-Math.PI/8)*100+center[0]);
+    pointy.push(Math.sin(((Math.PI*2*i)/8)-Math.PI/8)*100+center[1]);
+  }
+
+  context.beginPath();
+  context.moveTo(pointx[0], pointy[0]);
+
+  for (let j = 0; j < pointx.length; j++) {
+    context.lineTo(pointx[j], pointy[j])
+    context.strokeStyle = "#000000"
+    context.fillStyle = "FF0000"
+    context.stroke();
+  }
 }
 
 /*
@@ -355,6 +378,33 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
+
+  canvas = document.getElementById("canvas8");
+  const context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  while(1) {
+    length = Number(prompt("Enter a length for the block pyramid."))
+    if (length>=5 && length<=250 && Number.isInteger(length)) {
+      break;
+    }
+    else if (length < 5){
+      alert("The inner radius is too small.")
+    }
+    else if (length > 250){
+      alert("The inner radius is too big")
+    }
+    else {
+      alert("One of the radius lengths were invalid.")
+    }
+  }
+
+
+
+
+
+
+
 
 }
 
