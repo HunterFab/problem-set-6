@@ -404,13 +404,20 @@ function drawPyramid() {
     }
   }
 
-
-
-
-
-
-
-
+    let x = 10;
+    let y = canvas.height-10;
+    let i = 0;
+    line = 1;
+    while(i < 5) {
+      for(let j = 0 + line; j <= 5; j++){
+        context.strokeRect(x, y - length, length, length);
+        x = x + length;
+      }
+      x = 10 + (length/2)*line;
+      y = y - length;
+      line++;
+      i++;
+    }
 }
 
 /*
@@ -443,5 +450,56 @@ function drawPyramid() {
  */
 
 function drawHouse() {
+
+    let canvas = document.getElementById('canvas9');
+    let context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    while (1) {
+    door = prompt("Enter a color for the Door");
+    house = prompt("Enter a color for the House");
+    if (door == "brown" || door == "blue" || door == "green" || door == "orange" || door == "purple" || door == "red" || door == "yellow") {
+      break;
+    }
+    else if (house == "brown" || house == "blue" || house == "green" || house == "orange" || house == "purple" || house == "red" || house == "yellow") {
+      break;
+    }
+    else {
+        alert("One or more of your colors is invalid")
+    }
+  }
+  let x = 150;
+  let lengthHouse = 560;
+  let heightHouse = 400;
+  let y = canvas.height - heightHouse - 10;
+  context.beginPath();
+
+  context.fillStyle = house;
+  context.fillRect(x,y,lengthHouse,heightHouse);
+
+  context.fillStyle = door;
+  context.fillRect(x + (lengthHouse/2) - 30,y + 300,60,100);
+  context.strokeRect(x+(lengthHouse/2) - 30,y + 300,60,100);
+  context.stroke();
+
+  context.fillStyle = "gray";
+  context.moveTo(x,y);
+  context.lineTo(x + 300,150);
+  context.lineTo(x + lengthHouse,y);
+  context.lineTo(x,y);
+  context.fill();
+
+  context.fillStyle="#ADD8E6";
+  context.fillRect(300,y + 100, 50, 50);
+  context.fillRect(540,y + 100, 50, 50);
+  context.fillRect(300,y + 200, 50, 50);
+  context.fillRect(540,y + 200, 50, 50);
+  context.closePath();
+
+  context.beginPath();
+  context.fillStyle = 'yellow';
+  context.arc(450, 700, 6, 0, Math.PI*2);
+  context.fill();
+  context.closePath()
 
 }
