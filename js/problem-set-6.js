@@ -60,18 +60,6 @@ else if (x < 5) {
 else if (y < 5) {
   alert("Your y value is too small.")
 }
-else if (height != Number.isInteger(height)) {
-  alert("The height value is not a number.")
-}
-else if (width != Number.isInteger(width)) {
-  alert("The width value is not a number.")
-}
-else if (x != Number.isInteger(x)) {
-  alert("The x value is not a number.")
-}
-else if (y != Number.isInteger(y)) {
-  alert("The y value is not a number.")
-}
 else {
 canvas = document.getElementById("canvas2")
 const context = canvas.getContext("2d")
@@ -158,18 +146,18 @@ function drawColoredRectangle() {
 
 function drawTriangle() {
 
-  canvas = document.getElementById("canvas4");
-  const context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
-    let x = 10;
-    let y = 10;
-    let a;
-    let b;
-    let c;
-  while(true){
-	     a = Number(prompt("Enter the length of side 1."));
-	     b = Number(prompt("Enter the length of side 2"));
-	     c = Number(prompt("Enter the lenght of the hypotenuse."));
+canvas = document.getElementById("canvas4");
+const context = canvas.getContext("2d");
+context.clearRect(0, 0, canvas.width, canvas.height);
+  let x = 10;
+  let y = 10;
+  let a;
+  let b;
+  let c;
+while(true){
+	a = Number(prompt("Enter the length of side 1."));
+	b = Number(prompt("Enter the length of side 2"));
+	c = Number(prompt("Enter the lenght of the hypotenuse."));
 	if(a**2 + b**2 == c**2 && a>0 && b>0 && c>0 && canvas.width-x-a >= 0 && canvas.height-y-b >= 0){
 		break;
 	}
@@ -215,39 +203,39 @@ context.stroke();
 
 function drawSmileyFace() {
 
-  canvas = document.getElementById("canvas5");
-  const context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  let r;
+canvas = document.getElementById("canvas5");
+const context = canvas.getContext("2d");
+context.clearRect(0, 0, canvas.width, canvas.height);
+let r;
 
-  while(1) {
-    r = Number(prompt("Enter a radius for the smiley face."))
-    if (r>=1 && r<=canvas.width && Number.isInteger(r)) {
-      break;
-    }
+while(1) {
+  r = Number(prompt("Enter a radius for the smiley face."))
+  if (r>=1 && r<=canvas.width && Number.isInteger(r)) {
+    break;
+  }
     else {
       alert("The radius is invalid.")
     }
   }
-  let x = canvas.height / 2
-  let y = canvas.height / 2
+let x = 10 + r
+let y = 10 + r
 
-  context.beginPath();
-  context.arc(x,y,r,0*Math.PI,2*Math.PI);
-  context.stroke();
+context.beginPath();
+context.arc(x,y,r,0*Math.PI,2*Math.PI);
+context.stroke();
 
-  let eyer = r * .1
-  let mouthr = r *.6
+let eyer = r * .1
+let mouthr = r *.6
 
-  context.beginPath();
-  context.arc(x+r/4,y-r/3,eyer,0*Math.PI,2*Math.PI);
-  context.stroke();
-  context.beginPath();
-  context.arc(x-r/4,y-r/3,eyer,0*Math.PI,2*Math.PI);
-  context.stroke();
-  context.beginPath();
-  context.arc(x,y,mouthr,0*Math.PI,Math.PI);
-  context.stroke();
+context.beginPath();
+context.arc(x+r/4,y-r/3,eyer,0*Math.PI,2*Math.PI);
+context.stroke();
+context.beginPath();
+context.arc(x-r/4,y-r/3,eyer,0*Math.PI,2*Math.PI);
+context.stroke();
+context.beginPath();
+context.arc(x,y,mouthr,0*Math.PI,Math.PI);
+context.stroke();
 }
 
 /*
@@ -270,19 +258,19 @@ function drawSmileyFace() {
 
 function drawStar() {
 
-  canvas = document.getElementById("canvas6");
-  const context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
+canvas = document.getElementById("canvas6");
+const context = canvas.getContext("2d");
+context.clearRect(0, 0, canvas.width, canvas.height);
 
-  let ir
-  let or
+let ir
+let or
 
-  while(1) {
-    ir = Number(prompt("Enter an inner radius for the star."))
-    or = Number(prompt("Enter an outer radius for the star."))
-    if (ir>=5 && ir<=250 && Number.isInteger(ir) && ir<=250 && or>=10 && or<=300 && Number.isInteger(ir)) {
-      break;
-    }
+while(1) {
+  ir = Number(prompt("Enter an inner radius for the star."))
+  or = Number(prompt("Enter an outer radius for the star."))
+  if (ir>=5 && ir<=250 && Number.isInteger(ir) && ir<=250 && or>=10 && or<=300 && Number.isInteger(ir)) {
+    break;
+  }
     else if (ir < 5){
       alert("The inner radius is too small.")
     }
@@ -301,20 +289,20 @@ function drawStar() {
     else {
       alert("One of the radius lengths were invalid.")
     }
-  }
-
-  context.beginPath();
-  context.translate(125, 125);
-  context.moveTo(0,0-or);
-
-  for (var i = 0; i < 5; i++) {
-    context.rotate(Math.PI / 5);
-    context.lineTo(0, 0 - (ir));
-    context.rotate(Math.PI / 5);
-    context.lineTo(0, 0 - or);
-    context.stroke();
-      }
 }
+
+context.beginPath();
+context.translate(125, 125);
+context.moveTo(0,0-or);
+
+for (var i = 0; i < 5; i++) {
+  context.rotate(Math.PI / 5);
+  context.lineTo(0, 0 - (ir));
+  context.rotate(Math.PI / 5);
+  context.lineTo(0, 0 - or);
+  context.stroke();
+    }
+  }
 
 
 /*
@@ -334,28 +322,33 @@ function drawStar() {
 
 function drawStopSign() {
 
-  canvas = document.getElementById("canvas7");
-  const context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
+canvas = document.getElementById("canvas7");
+const context = canvas.getContext("2d");
+context.clearRect(0, 0, canvas.width, canvas.height);
 
-  let center = [120*(90/82/Math.sqrt(2)), (50+(80/Math.sqrt(2)))]
+let center = [120*(90/82/Math.sqrt(2)), (50+(80/Math.sqrt(2)))]
 
-  let pointx=[];
-  let pointy=[];
+let pointx=[];
+let pointy=[];
 
-  for(let i=0;i<9;i++){
-    pointx.push(Math.cos(((Math.PI*2*i)/8)-Math.PI/8)*100+center[0]);
-    pointy.push(Math.sin(((Math.PI*2*i)/8)-Math.PI/8)*100+center[1]);
-  }
+for(let i=0;i<9;i++){
+  pointx.push(Math.cos(((Math.PI*2*i)/8)-Math.PI/8)*100+center[0]);
+  pointy.push(Math.sin(((Math.PI*2*i)/8)-Math.PI/8)*100+center[1]);
+}
 
-  context.beginPath();
-  context.moveTo(pointx[0], pointy[0]);
+context.beginPath();
+context.moveTo(pointx[0], pointy[0]);
 
-  for (let j = 0; j < pointx.length; j++) {
-    context.lineTo(pointx[j], pointy[j])
-    context.strokeStyle = "#000000"
-    context.fillStyle = "FF0000"
-    context.stroke();
+for (let j = 0; j < pointx.length; j++) {
+  context.lineTo(pointx[j], pointy[j]);
+  context.strokeStyle = "red";
+  context.fillStyle = "red";
+  context.fill();
+
+  context.textAlign = "center";
+  context.font = "64px Helvetica";
+  context.fillStyle = "white";
+  context.fillText("STOP", center[0], center[1]+15);
   }
 }
 
@@ -379,14 +372,14 @@ function drawStopSign() {
 
 function drawPyramid() {
 
-  canvas = document.getElementById("canvas8");
-  const context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
+canvas = document.getElementById("canvas8");
+const context = canvas.getContext("2d");
+context.clearRect(0, 0, canvas.width, canvas.height);
 
-  while(1) {
-    length = Number(prompt("Enter a length for the block pyramid."))
-    if (length>=5 && length<=250 && Number.isInteger(length)) {
-      break;
+while(1) {
+  length = Number(prompt("Enter a length for the block pyramid."))
+  if (length>=5 && length<=250 && Number.isInteger(length)) {
+    break;
     }
     else if (length < 5){
       alert("The inner radius is too small.")
@@ -399,13 +392,20 @@ function drawPyramid() {
     }
   }
 
-
-
-
-
-
-
-
+let x = 10;
+let y = canvas.height-10;
+let i = 0;
+line = 1;
+  while(i < 5) {
+    for(let j = 0 + line; j <= 5; j++){
+      context.strokeRect(x, y - length, length, length);
+        x = x + length;
+      }
+    x = 10 + (length/2)*line;
+    y = y - length;
+    line++;
+    i++;
+    }
 }
 
 /*
@@ -439,4 +439,54 @@ function drawPyramid() {
 
 function drawHouse() {
 
+let canvas = document.getElementById('canvas9');
+let context = canvas.getContext('2d');
+context.clearRect(0, 0, canvas.width, canvas.height);
+
+while (1) {
+door = prompt("Enter a color for the Door");
+house = prompt("Enter a color for the House");
+if (door == "brown" || door == "blue" || door == "green" || door == "orange" || door == "purple" || door == "red" || door == "yellow") {
+  break;
+    }
+    else if (house == "brown" || house == "blue" || house == "green" || house == "orange" || house == "purple" || house == "red" || house == "yellow") {
+      break;
+    }
+    else {
+        alert("One or more of your colors is invalid")
+    }
+  }
+let x = 150;
+let lengthHouse = 560;
+let heightHouse = 400;
+let y = canvas.height - heightHouse - 10;
+context.beginPath();
+
+context.fillStyle = house;
+context.fillRect(x,y,lengthHouse,heightHouse);
+
+context.fillStyle = door;
+context.fillRect(x + (lengthHouse/2) - 30,y + 300,60,100);
+context.strokeRect(x+(lengthHouse/2) - 30,y + 300,60,100);
+context.stroke();
+
+context.fillStyle = "gray";
+context.moveTo(x,y);
+context.lineTo(x + 300,150);
+context.lineTo(x + lengthHouse,y);
+context.lineTo(x,y);
+context.fill();
+
+context.fillStyle="#ADD8E6";
+context.fillRect(300,y + 100, 50, 50);
+context.fillRect(540,y + 100, 50, 50);
+context.fillRect(300,y + 200, 50, 50);
+context.fillRect(540,y + 200, 50, 50);
+context.closePath();
+
+context.beginPath();
+context.fillStyle = 'yellow';
+context.arc(450, 700, 6, 0, Math.PI*2);
+context.fill();
+context.closePath();
 }
