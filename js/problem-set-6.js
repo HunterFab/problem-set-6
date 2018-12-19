@@ -352,10 +352,15 @@ function drawStopSign() {
   context.moveTo(pointx[0], pointy[0]);
 
   for (let j = 0; j < pointx.length; j++) {
-    context.lineTo(pointx[j], pointy[j])
-    context.strokeStyle = "#000000"
-    context.fillStyle = "FF0000"
-    context.stroke();
+    context.lineTo(pointx[j], pointy[j]);
+    context.strokeStyle = "red";
+    context.fillStyle = "red";
+    context.fill();
+
+    context.textAlign = "center";
+    context.font = "56px Georgia";
+    context.fillStyle = "white";
+    context.fillText("STOP", center[0], center[1]+15);
   }
 }
 
